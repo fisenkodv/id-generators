@@ -1,4 +1,4 @@
-name: Build sample Java Maven project
+name: Build Maven
  
 on: [push, pull_request]
  
