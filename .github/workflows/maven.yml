@@ -39,5 +39,7 @@ jobs:
       with:
         name: artifact
         path: target/*.jar
-#     - name: Publish Maven build artifact
-#       run: mvn deploy -DaltDeploymentRepository=id::layout::url -Dregistry=https://maven.pkg.github.com/fisenkodv -Dtoken=GH_TOKEN
+    - name: Deploy Maven package
+      run: mvn deploy
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
