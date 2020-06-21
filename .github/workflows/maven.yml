@@ -41,3 +41,5 @@ jobs:
         path: target/*.jar
     - name: Deploy Maven package
       run: mvn deploy
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
