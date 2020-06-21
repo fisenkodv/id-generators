@@ -6,10 +6,10 @@
 
   <groupId>net.fisenko</groupId>
   <artifactId>utils-ids</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0.0</version>
 
-  <name>fisenko-utils-ids</name>
-  <url>https://fisenko.net</url>
+  <name>Collection of Id Generators</name>
+  <url>https://github.com/fisenkodv/id-generators</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
