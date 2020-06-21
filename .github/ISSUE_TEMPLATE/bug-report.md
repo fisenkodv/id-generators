@@ -1,7 +1,7 @@
 ---
 name: Bug report
 about: Create a report to help improve the project
-title: ''
+title: "[BUG] The issue title"
 labels: bug
 assignees: fisenkodv
 
