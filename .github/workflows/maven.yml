@@ -32,10 +32,10 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 11
-    - name: Build and test project
-      run: mvn -f pom.xml clean verify
+    - name: Build package
+      run: mvn -B package --file pom.xml
     - name: Upload Maven build artifact
       uses: actions/upload-artifact@v2
       with:
         name: artifact
-        path: github-actions-java-maven/target/github-actions-java-maven.jar
+        path: target/*.jar
