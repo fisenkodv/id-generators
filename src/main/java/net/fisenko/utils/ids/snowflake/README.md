@@ -28,7 +28,7 @@ The **sequence**-part is simply a value that is incremented each time a new Id i
 
 It's strongly recommended to use NTP to keep system clock accurate. `SnowflakeIdGenerator` protects from non-monotonic clocks, i.e. clocks that run backward.
 
-The [`DefaultTimeSource`](src/main/java/net/fisenko/utils/ids/snowflake/DefaultTimeSource.java) relies on a [`Stopwatch`](https://commons.apache.org/proper/commons-lang/javadocs/api-release/org/apache/commons/lang3/time/StopWatch.html) for calculating the 'ticks'. A custom time source could be added by implementing the [`ITimeSource`](src/main/java/net/fisenko/utils/ids/snowflake/TimeSource.java) interface.
+The [`DefaultTimeSource`](src/main/java/net/fisenko/utils/ids/snowflake/DefaultTimeSource.java) relies on a [`Stopwatch`](https://commons.apache.org/proper/commons-lang/javadocs/api-release/org/apache/commons/lang3/time/StopWatch.html) for calculating the 'ticks'. A custom time source could be added by implementing the [`TimeSource`](src/main/java/net/fisenko/utils/ids/snowflake/TimeSource.java) interface.
 
 ## Getting started
 
