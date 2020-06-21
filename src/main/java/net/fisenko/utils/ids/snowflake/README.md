@@ -1,4 +1,4 @@
-# ![Logo](https://github.com/fisenkodv/id-generators/blob/master/assets/images/snowflake/logo.png) Snowflakes
+# <a href='https://github.com/fisenkodv/id-generators/blob/master/src/main/java/net/fisenko/utils/ids/snowflake/README.md'><img src="https://github.com/fisenkodv/id-generators/blob/master/assets/images/snowflake/logo.png" height="80px"/></a>
 
 ## Why
 
