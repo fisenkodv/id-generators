@@ -17,6 +17,14 @@
     <maven.compiler.target>11</maven.compiler.target>
   </properties>
 
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/fisenkodv/id-generators</url>
+    </repository>
+  </distributionManagement>
+
   <dependencies>
     <dependency>
       <groupId>org.apache.commons</groupId>
