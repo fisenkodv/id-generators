@@ -4,7 +4,7 @@
 
 Twitter Snowflake-alike ID generator for Java. ~~Available as [Maven package](https://mvnrepository.com/artifact/net.fisenko/utils-ids).~~
 
-See more details on the [Snowflakes](src/main/java/net/fisenko/utils/ids/snowflake/README.md) page.
+See more details on the [Snowflake](src/main/java/net/fisenko/utils/ids/snowflake/README.md) page.
 
 ## Universally Unique Lexicographically Sortable Identifier (ULID)
 
