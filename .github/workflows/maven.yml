@@ -10,8 +10,8 @@ jobs:
         java: [ 11, 12, 13 ]
     name: Java ${{ matrix.java }} compile
     steps:
-      - uses: actions/checkout@master
-      - name: Setup java
+      - uses: actions/checkout@v2
+      - name: Setup Java
         uses: actions/setup-java@v1
         with:
           java-version: ${{ matrix.java }}
@@ -21,8 +21,8 @@ jobs:
     needs: compile
     name: Build Maven project
     steps:
-    - uses: actions/checkout@v1
-    - uses: actions/cache@v1
+    - uses: actions/checkout@v2
+    - uses: actions/cache@v2
       with:
         path: ~/.m2/repository
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
@@ -35,7 +35,7 @@ jobs:
     - name: Build and test project
       run: mvn -f pom.xml clean verify
     - name: Upload Maven build artifact
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v2
       with:
         name: artifact
         path: github-actions-java-maven/target/github-actions-java-maven.jar
