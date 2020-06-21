@@ -1,6 +1,6 @@
 # ![Logo](https://raw.githubusercontent.com/fisenkodv/id-generators/master/assets/images/logo.png) Id Generators
 
-## Snowflakes
+## Snowflake
 
 Twitter Snowflake-alike ID generator for Java. ~~Available as [Maven package](https://mvnrepository.com/artifact/net.fisenko/utils-ids).~~
 
