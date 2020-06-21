@@ -4,7 +4,7 @@
 
 ## Snowflake
 
-Twitter Snowflake-alike ID generator for Java. ~~Available as [Maven package](https://mvnrepository.com/artifact/net.fisenko/utils-ids).~~
+Twitter Snowflake-alike ID generator for Java. Available as [Maven package](https://github.com/fisenkodv/id-generators/packages/280024).
 
 See more details on the [Snowflake](src/main/java/net/fisenko/utils/ids/snowflake/README.md) page.
 
