@@ -15,4 +15,4 @@
 | Benchmark | Mode  | Cnt | Score    | Error    | Units  |
 | :-------- | ----- | --- | -------- | -------- | ------ |
 | snowflake | thrpt | 6   | 374.869  | ± 86.832 | ops/ms |
-| uuid      | thrpt | 6   | 2616.008 | 92.965   | ops/ms |
+| uuid      | thrpt | 6   | 2616.008 | ± 92.965 | ops/ms |
