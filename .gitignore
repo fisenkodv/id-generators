@@ -60,3 +60,6 @@ build/
 
 ### macOS ###
 .DS_Store
+
+### Project Related ###
+jmh-result.json
