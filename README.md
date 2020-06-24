@@ -14,6 +14,10 @@ ULID generator for Java. ~~Available as [Maven package](https://mvnrepository.co
 
 See more details on the [ULID](src/main/java/net/fisenko/utils/ids/ulid/README.md) page.
 
+## Benchmarks
+
+Benchmark results are [here](src/main/java/net/fisenko/utils/ids/benchmark/README.md).
+
 <hr>
 
 Icon made by [Freepik](http://www.flaticon.com/authors/freepik) from [www.flaticon.com](http://www.flaticon.com) is licensed by [CC 3.0](http://creativecommons.org/licenses/by/3.0/).

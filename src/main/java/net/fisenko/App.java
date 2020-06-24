@@ -1,9 +1,7 @@
 package net.fisenko;
 
 import net.fisenko.utils.ids.snowflake.IdGenerator;
-import net.fisenko.utils.ids.snowflake.InvalidSystemClockException;
 import net.fisenko.utils.ids.snowflake.MaskConfig;
-import net.fisenko.utils.ids.snowflake.SequenceOverflowException;
 import net.fisenko.utils.ids.snowflake.SnowflakeIdGenerator;
 
 import java.time.LocalDateTime;
@@ -11,7 +9,7 @@ import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 
 public class App {
-    public static void main(String[] args) throws InvalidSystemClockException, SequenceOverflowException {
+    public static void main(String[] args) {
         // June 1st 2020 is the epoch
         OffsetDateTime epoch = OffsetDateTime.of(LocalDateTime.of(2020, 6, 1, 0, 0, 0), ZoneOffset.UTC);
         // Create a mask configuration of 45 bits for timestamp, 2 for generator-id and 16 for sequence
