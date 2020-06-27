@@ -1,4 +1,4 @@
-# <a href='https://github.com/fisenkodv/id-generators/blob/master/src/main/java/net/fisenko/utils/ids/snowflake/README.md'><img src="https://github.com/fisenkodv/id-generators/blob/master/assets/images/snowflake/logo.png" height="80px"/></a>
+# <a href='https://github.com/fisenkodv/id-generators/blob/master/src/main/java/net/fisenko/utils/ids/snowflake/README.md'><img src="https://github.com/fisenkodv/id-generators/blob/master/assets/images/snowflake/logo.png?raw=true" height="80px"/></a>
 
 ## Why
 
@@ -14,7 +14,7 @@ In certain situations, you need a low-latency, distributed, uncoordinated, (roug
 
 An Id generated with a **Default** `MaskConfig` is structured as follows:
 
-![Id structure](https://github.com/fisenkodv/id-generators/blob/master/assets/images/snowflake/structure.png)
+![Id structure](https://github.com/fisenkodv/id-generators/blob/master/assets/images/snowflake/structure.png?raw=true)
 
 However, using the `MaskConfig` class you can tune the structure of the created Id's to your own needs; you can use 45 bits for the timestamp, 2 bits for the generator-id, and 16 bits for the sequence if you prefer. As long as all 3 parts (timestamp, generator, and sequence) add up to 63 bits you're good to go!
 
