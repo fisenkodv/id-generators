@@ -184,14 +184,14 @@ public class SnowflakeIdGenerator implements IdGenerator<Long> {
      * Returns information about an Id such as the sequence number, generator id and date/time the Id was generated
      * based on the current mask config of the generator.
      * IMPORTANT: note that this method relies on the mask config and timesource; if the id was generated with a
-     * different mask config and/or timesource than the current one the 'decoded' ID will NOT contain correct
+     * different mask config and/or timesource than the current one the 'decoded' Id will NOT contain correct
      * information.
      * @param id The Id to extract information from.
-     * @return Returns an {@link ID} that contains information about the 'decoded' Id.
+     * @return Returns an {@link Id} that contains information about the 'decoded' Id.
      */
-    public ID fromId(long id) {
+    public Id fromId(long id) {
         // Deconstruct Id by unshifting the bits into the proper parts
-        return new ID(
+        return new Id(
                 (int) (id & MASK_SEQUENCE),
                 (int) ((id >> SHIFT_GENERATOR) & MASK_GENERATOR),
                 timeSource.getEpoch().plus(Duration.ofNanos(((id >> SHIFT_TIME) & MASK_TIME) * timeSource.getTickDuration().getNano()))

@@ -6,19 +6,18 @@ import java.util.Objects;
 /**
  * Holds information about a decoded id.
  */
-public class ID {
+public class Id {
     private final int sequenceNumber;
     private final int generatorId;
     private final OffsetDateTime dateTimeOffset;
 
-    /// <summary>
-    /// Initializes a new instance of the <see cref="ID"/> struct.
-    /// </summary>
-    /// <param name="sequenceNumber">The sequence number of the id.</param>
-    /// <param name="generatorId">The generator id of the generator that generated the id.</param>
-    /// <param name="dateTimeOffset">The date/time when the id was generated.</param>
-    /// <returns></returns>
-    ID(int sequenceNumber, int generatorId, OffsetDateTime dateTimeOffset) {
+    /**
+     * Initializes a new instance of the {@link Id} struct.
+     * @param sequenceNumber The sequence number of the id.
+     * @param generatorId The generator id of the generator that generated the id.
+     * @param dateTimeOffset The date/time when the id was generated.
+     */
+    Id(int sequenceNumber, int generatorId, OffsetDateTime dateTimeOffset) {
         this.sequenceNumber = sequenceNumber;
         this.generatorId = generatorId;
         this.dateTimeOffset = dateTimeOffset;
@@ -58,14 +57,14 @@ public class ID {
     }
 
     /**
-     * Returns a value indicating whether this instance and a specified {@link ID} object represent the same value.
-     * @param obj An {@link ID} to compare to this instance.
+     * Returns a value indicating whether this instance and a specified {@link Id} object represent the same value.
+     * @param obj An {@link Id} to compare to this instance.
      * @return Returns true if {@param obj} is equal to this instance; otherwise, false.
      */
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof ID) {
-            ID other = (ID) obj;
+        if (obj instanceof Id) {
+            Id other = (Id) obj;
             return generatorId == other.generatorId
                     && dateTimeOffset.equals(other.dateTimeOffset)
                     && sequenceNumber == other.sequenceNumber;

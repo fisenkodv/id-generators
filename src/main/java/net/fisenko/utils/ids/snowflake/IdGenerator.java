@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 /**
  * Provides the interface for Id-generators.
- * @param <T> The type for the generated ID's.
+ * @param <T> The type for the generated Id's.
  */
 public interface IdGenerator<T> extends Iterable<T> {
     /**
