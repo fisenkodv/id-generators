@@ -13,14 +13,5 @@ public class BenchmarkRunner {
                 .resultFormat(ResultFormatType.JSON)
                 .build();
         new Runner(options).run();
-
-
     }
-
-double getRandom(int decimalPoints) {
-    double a = Math.random();
-    int multiplier = (int) Math.pow(10, decimalPoints);
-    int b = (int) (a * multiplier);
-    return b / (double) multiplier;
-}
 }
