@@ -24,8 +24,8 @@ Creating a ULID:
 ```java
 // Create a ULID
 UlidIdGenerator ulidIdGenerator=new UlidIdGeneratorImpl();
-        Ulid ulid=ulidIdGenerator.next();
-        System.out.println(ulidIdGenerator.next());
+Ulid ulid=ulidIdGenerator.next();
+System.out.println(ulidIdGenerator.next());
 ```
 
 Output:
@@ -77,10 +77,10 @@ and a newly generated ULID in the same millisecond is detected, the random compo
 ```java
 // Create monotonic rng
 UlidIdGenerator ulidIdGenerator=new UlidIdGeneratorImpl();
-        System.out.println(ulidIdGenerator.next()); //38D983EXR1EXZSJFPQ7W192JAG
-        System.out.println(ulidIdGenerator.next()); //38D983EXR1FBQSY3XQWQ4CJZDT
-        System.out.println(ulidIdGenerator.next()); //38D983EXR1FBQSY3XQWQ4CJZDV
-        System.out.println(ulidIdGenerator.next()); //38D983EXR1FBQSY3XQWQ4CJZDW
+System.out.println(ulidIdGenerator.next()); //38D983EXR1EXZSJFPQ7W192JAG
+System.out.println(ulidIdGenerator.next()); //38D983EXR1FBQSY3XQWQ4CJZDT
+System.out.println(ulidIdGenerator.next()); //38D983EXR1FBQSY3XQWQ4CJZDV
+System.out.println(ulidIdGenerator.next()); //38D983EXR1FBQSY3XQWQ4CJZDW
 ```
 
 By default the most significant bit of the random part is set to zero; this ensures you can generate enough ULID's after the initial one before causing an overflow. Some
