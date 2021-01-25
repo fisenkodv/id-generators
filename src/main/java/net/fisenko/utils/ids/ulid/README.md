@@ -24,7 +24,7 @@ Creating a ULID:
 ```java
 // Create a ULID
 UlidIdGenerator ulidIdGenerator=new UlidIdGeneratorImpl();
-Ulid ulid=ulidIdGenerator.next();
+Ulid ulid = ulidIdGenerator.next();
 System.out.println(ulidIdGenerator.next());
 ```
 
@@ -38,7 +38,7 @@ Parsing a ULID:
 // Parse ULID:
 Ulid ulid=Ulid.parse("7RTN7KEXR1BH67T1R2MPR720SD");
 // Print time-part of ULID:
-        System.out.println(myulid.getTimestamp());
+System.out.println(myulid.getTimestamp());
 ```
 
 Output:
