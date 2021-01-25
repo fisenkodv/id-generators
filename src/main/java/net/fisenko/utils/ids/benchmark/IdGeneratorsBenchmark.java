@@ -1,9 +1,17 @@
 package net.fisenko.utils.ids.benchmark;
 
-import net.fisenko.utils.ids.snowflake.IdGenerator;
-import net.fisenko.utils.ids.snowflake.InvalidSystemClockException;
-import net.fisenko.utils.ids.snowflake.SequenceOverflowException;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
+import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 import net.fisenko.utils.ids.snowflake.SnowflakeIdGenerator;
+import net.fisenko.utils.ids.snowflake.SnowflakeIdGeneratorImpl;
+import net.fisenko.utils.ids.ulid.Ulid;
+import net.fisenko.utils.ids.ulid.UlidIdGenerator;
+import net.fisenko.utils.ids.ulid.UlidIdGeneratorImpl;
+import net.fisenko.utils.ids.ulid.random.impl.CryptographicallySecureRandomImpl;
+import net.fisenko.utils.ids.ulid.random.impl.MonotonicUlidRandomImpl;
+import net.fisenko.utils.ids.ulid.random.impl.SimpleUlidRandomImpl;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Fork;
@@ -16,20 +24,18 @@ import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
 
-import java.util.UUID;
-import java.util.concurrent.TimeUnit;
-
 @BenchmarkMode(Mode.Throughput)
 @Warmup(iterations = 1)
 @Measurement(iterations = 3)
 @Fork(value = 2, warmups = 1)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
 public class IdGeneratorsBenchmark {
+
     @Benchmark
     public void snowflake(ExecutionPlan executionPlan) {
         try {
-            executionPlan.generator.createId();
-        } catch (InvalidSystemClockException | SequenceOverflowException e) {
+            executionPlan.snowflakeIdGenerator.next();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -39,13 +45,35 @@ public class IdGeneratorsBenchmark {
         UUID uuid = UUID.randomUUID();
     }
 
+    @Benchmark
+    public void ulidWithMonotonicRandom(ExecutionPlan executionPlan) throws Exception {
+        Ulid ulid = executionPlan.monotonicUlidIdGenerator.next();
+    }
+
+    @Benchmark
+    public void ulidWithSimpleRandom(ExecutionPlan executionPlan) throws Exception {
+        Ulid ulid = executionPlan.simpleUlidIdGenerator.next();
+    }
+
+    @Benchmark
+    public void ulidWithCryptographicallySecureRandom(ExecutionPlan executionPlan) throws Exception {
+        Ulid ulid = executionPlan.cryptographicallySecureUlidIdGenerator.next();
+    }
+
     @State(Scope.Thread)
     public static class ExecutionPlan {
-        public IdGenerator<Long> generator;
+
+        public SnowflakeIdGenerator snowflakeIdGenerator;
+        public UlidIdGenerator monotonicUlidIdGenerator;
+        public UlidIdGenerator simpleUlidIdGenerator;
+        public UlidIdGenerator cryptographicallySecureUlidIdGenerator;
 
         @Setup(Level.Trial)
         public void setup() {
-            this.generator = new SnowflakeIdGenerator((int) Thread.currentThread().getId());
+            this.snowflakeIdGenerator = new SnowflakeIdGeneratorImpl((int) Thread.currentThread().getId());
+            this.monotonicUlidIdGenerator = new UlidIdGeneratorImpl(OffsetDateTime.now(ZoneOffset.UTC), new MonotonicUlidRandomImpl());
+            this.simpleUlidIdGenerator = new UlidIdGeneratorImpl(OffsetDateTime.now(ZoneOffset.UTC), new SimpleUlidRandomImpl());
+            this.cryptographicallySecureUlidIdGenerator = new UlidIdGeneratorImpl(OffsetDateTime.now(ZoneOffset.UTC), new CryptographicallySecureRandomImpl());
         }
     }
 }

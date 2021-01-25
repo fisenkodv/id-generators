@@ -1,21 +1,21 @@
 package net.fisenko;
 
-import net.fisenko.utils.ids.snowflake.IdGenerator;
-import net.fisenko.utils.ids.snowflake.MaskConfig;
-import net.fisenko.utils.ids.snowflake.SnowflakeIdGenerator;
-
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
+import net.fisenko.utils.ids.snowflake.SnowflakeIdGenerator;
+import net.fisenko.utils.ids.snowflake.SnowflakeIdGeneratorImpl;
+import net.fisenko.utils.ids.snowflake.config.MaskConfig;
 
 public class App {
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws Exception {
         // June 1st 2020 is the epoch
         OffsetDateTime epoch = OffsetDateTime.of(LocalDateTime.of(2020, 6, 1, 0, 0, 0), ZoneOffset.UTC);
         // Create a mask configuration of 45 bits for timestamp, 2 for generator-id and 16 for sequence
         MaskConfig maskConfig = new MaskConfig((byte) 45, (byte) 2, (byte) 16);
 
-        IdGenerator<Long> generator = new SnowflakeIdGenerator(0, epoch, maskConfig);
+        SnowflakeIdGenerator generator = new SnowflakeIdGeneratorImpl(0, epoch, maskConfig);
 
         // Let's ask the mask configuration how many generators we could instantiate in this setup (2 bits)
         System.out.printf("Max. generators: %d", maskConfig.getMaxGenerators());

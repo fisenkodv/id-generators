@@ -6,18 +6,20 @@ import java.util.Objects;
 /**
  * Holds information about a decoded id.
  */
-public class Id {
+public class IdInfo {
+
     private final int sequenceNumber;
     private final int generatorId;
     private final OffsetDateTime dateTimeOffset;
 
     /**
-     * Initializes a new instance of the {@link Id} struct.
-     * @param sequenceNumber The sequence number of the id.
-     * @param generatorId The generator id of the generator that generated the id.
-     * @param dateTimeOffset The date/time when the id was generated.
+     * Initializes a new instance of the {@link IdInfo} struct.
+     *
+     * @param sequenceNumber the sequence number of the id.
+     * @param generatorId    the generator id of the generator that generated the id.
+     * @param dateTimeOffset the date/time when the id was generated.
      */
-    Id(int sequenceNumber, int generatorId, OffsetDateTime dateTimeOffset) {
+    public IdInfo(int sequenceNumber, int generatorId, OffsetDateTime dateTimeOffset) {
         this.sequenceNumber = sequenceNumber;
         this.generatorId = generatorId;
         this.dateTimeOffset = dateTimeOffset;
@@ -25,6 +27,7 @@ public class Id {
 
     /**
      * Gets the sequence number of the id.
+     *
      * @return Returns the sequence number.
      */
     public int getSequenceNumber() {
@@ -33,6 +36,7 @@ public class Id {
 
     /**
      * Gets the generator id of the generator that generated the id.
+     *
      * @return Returns the generator id.
      */
     public int getGeneratorId() {
@@ -41,6 +45,7 @@ public class Id {
 
     /**
      * Gets the date/time when the id was generated.
+     *
      * @return Returns date/time.
      */
     public OffsetDateTime getDateTimeOffset() {
@@ -49,6 +54,7 @@ public class Id {
 
     /**
      * The hash code for this instance.
+     *
      * @return Returns the hash code for this instance.
      */
     @Override
@@ -57,14 +63,15 @@ public class Id {
     }
 
     /**
-     * Returns a value indicating whether this instance and a specified {@link Id} object represent the same value.
-     * @param obj An {@link Id} to compare to this instance.
+     * Returns a value indicating whether this instance and a specified {@link IdInfo} object represent the same value.
+     *
+     * @param obj An {@link IdInfo} to compare to this instance.
      * @return Returns true if {@param obj} is equal to this instance; otherwise, false.
      */
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Id) {
-            Id other = (Id) obj;
+        if (obj instanceof IdInfo) {
+            IdInfo other = (IdInfo) obj;
             return generatorId == other.generatorId
                     && dateTimeOffset.equals(other.dateTimeOffset)
                     && sequenceNumber == other.sequenceNumber;

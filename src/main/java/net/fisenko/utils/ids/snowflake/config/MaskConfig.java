@@ -1,15 +1,17 @@
-package net.fisenko.utils.ids.snowflake;
+package net.fisenko.utils.ids.snowflake.config;
 
 import java.time.Duration;
 import java.time.OffsetDateTime;
+import net.fisenko.utils.ids.snowflake.SnowflakeIdGenerator;
+import net.fisenko.utils.ids.snowflake.timeSource.TimeSource;
 
 /**
- * Specifies the number of bits to use for the different parts of an Id for an {@link IdGenerator}.
+ * Specifies the number of bits to use for the different parts of an Id for an {@link SnowflakeIdGenerator}.
  */
 public class MaskConfig {
+
     /**
-     * Gets a default {@link MaskConfig} with 41 bits for the timestamp part, 10 bits for the generator-id
-     * part and 12 bits for the sequence part of the id.
+     * Gets a default {@link MaskConfig} with 41 bits for the timestamp part, 10 bits for the generator-id part and 12 bits for the sequence part of the id.
      */
     public static final MaskConfig Default = new MaskConfig((byte) 41, (byte) 10, (byte) 12);
     private final byte timestampBits;
@@ -17,7 +19,8 @@ public class MaskConfig {
     private final byte sequenceBits;
 
     /**
-     * Initializes a bitmask configuration for {@link IdGenerator}.
+     * Initializes a bitmask configuration for {@link SnowflakeIdGenerator}.
+     *
      * @param timestampBits   Number of bits to use for the timestamp-part of Id's.
      * @param generatorIdBits Number of bits to use for the generator-id of Id's.
      * @param sequenceBits    Number of bits to use for the sequence-part of Id's.
@@ -30,6 +33,7 @@ public class MaskConfig {
 
     /**
      * Gets number of bits to use for the timestamp part of the Id's to generate.
+     *
      * @return Returns number of bits.
      */
     public byte getTimestampBits() {
@@ -38,6 +42,7 @@ public class MaskConfig {
 
     /**
      * Gets number of bits to use for the generator-id part of the Id's to generate.
+     *
      * @return Returns number of bits.
      */
     public byte getGeneratorIdBits() {
@@ -46,6 +51,7 @@ public class MaskConfig {
 
     /**
      * Gets number of bits to use for the sequence part of the Id's to generate.
+     *
      * @return Returns number of bits.
      */
     public byte getSequenceBits() {
@@ -54,6 +60,7 @@ public class MaskConfig {
 
     /**
      * Gets the total number of bits for the {@link MaskConfig}.
+     *
      * @return Returns total number of bits.
      */
     public int getTotalBits() {
@@ -62,6 +69,7 @@ public class MaskConfig {
 
     /**
      * Gets the maximum number of intervals for this mask configuration.
+     *
      * @return Returns the maximum number of intervals.
      */
     public long getMaxIntervals() {
@@ -70,6 +78,7 @@ public class MaskConfig {
 
     /**
      * Gets the maximum number of generators available for this mask configuration.
+     *
      * @return Returns the maximum number of generators.
      */
     public long getMaxGenerators() {
@@ -77,8 +86,8 @@ public class MaskConfig {
     }
 
     /**
-     * Gets the maximum number of sequential Id's for a time-interval (e.g. max. number of Id's generated
-     * within a single interval).
+     * Gets the maximum number of sequential Id's for a time-interval (e.g. max. number of Id's generated within a single interval).
+     *
      * @return Returns the maximum number of Id's/
      */
     public long getMaxSequenceIds() {
@@ -86,10 +95,10 @@ public class MaskConfig {
     }
 
     /**
-     * Calculates the last date for an Id before a 'wrap around' will occur in the timestamp-part of an Id for the
-     * given {@link MaskConfig}.
-     * @param epoch      The used epoch for the {@link IdGenerator} to use as offset.
-     * @param timeSource The used {@link TimeSource} for the {@link IdGenerator}.
+     * Calculates the last date for an Id before a 'wrap around' will occur in the timestamp-part of an Id for the given {@link MaskConfig}.
+     *
+     * @param epoch      The used epoch for the {@link SnowflakeIdGenerator} to use as offset.
+     * @param timeSource The used {@link TimeSource} for the {@link SnowflakeIdGenerator}.
      * @return The last date for an Id before a 'wrap around' will occur in the timestamp-part of an Id.
      * @throws IllegalArgumentException Thrown when 'timeSource' is null.
      */
@@ -102,7 +111,8 @@ public class MaskConfig {
 
     /**
      * Calculates the interval at which a 'wrap around' will occur in the timestamp-part of an Id for the given {@link MaskConfig}.
-     * @param timeSource The used {@link TimeSource} for the {@link IdGenerator}.
+     *
+     * @param timeSource The used {@link TimeSource} for the {@link SnowflakeIdGenerator}.
      * @return The interval at which a 'wrap around' will occur in the timestamp-part of an Id for the given {@link MaskConfig}.
      * @throws IllegalArgumentException Thrown when 'timeSource' is null.
      */
